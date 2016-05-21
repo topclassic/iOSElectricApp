@@ -55,10 +55,13 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="View" image="graphtabbar" id="0T8-oA-ebk"/>
+                    <connections>
+                        <segue destination="sHp-oX-XHc" kind="show" identifier="ShowDayGraph" id="dlg-2a-Bvr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m1c-9z-Xxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96" y="1027"/>
+            <point key="canvasLocation" x="106" y="1027"/>
         </scene>
         <!--DetailController-->
         <scene sceneID="KGR-Pi-hrg">
@@ -143,12 +146,21 @@
                     <view key="view" contentMode="scaleToFill" id="FYq-SQ-JUW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YrD-aa-FAP" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="barChartView" destination="YrD-aa-FAP" id="HrC-Jb-uHV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UgX-bA-hH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96" y="1718"/>
+            <point key="canvasLocation" x="106" y="1794"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Qvc-sT-Ehr">
