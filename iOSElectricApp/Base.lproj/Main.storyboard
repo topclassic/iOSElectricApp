@@ -5,6 +5,61 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--GraphController-->
+        <scene sceneID="YYX-5t-veN">
+            <objects>
+                <tableViewController id="dWA-3f-LLy" userLabel="GraphController" customClass="GraphController" customModule="iOSElectricApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" id="Myc-zn-zEf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GraphCell" rowHeight="84" id="m7Q-Wu-UVK" customClass="GraphCell" customModule="iOSElectricApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="84"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m7Q-Wu-UVK" id="Tn9-Q8-qgP">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hRW-5b-Gkv">
+                                            <rect key="frame" x="37" y="8" width="66" height="62"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2R4-4X-6pT">
+                                            <rect key="frame" x="149" y="12" width="207" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rc5-v4-ldj">
+                                            <rect key="frame" x="149" y="49" width="207" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Fk-VB-9Y1">
+                                            <rect key="frame" x="444" y="23" width="51" height="31"/>
+                                        </switch>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ImageView" destination="hRW-5b-Gkv" id="sSq-lh-7VO"/>
+                                    <outlet property="OutletName" destination="2R4-4X-6pT" id="zwO-yi-jCf"/>
+                                    <outlet property="Power" destination="rc5-v4-ldj" id="Pp6-R7-Ydj"/>
+                                    <outlet property="Switch" destination="5Fk-VB-9Y1" id="Yac-QW-G5H"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dWA-3f-LLy" id="EUF-xQ-HnP"/>
+                            <outlet property="delegate" destination="dWA-3f-LLy" id="vGG-Ek-tUR"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="View" image="graphtabbar" id="0T8-oA-ebk"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m1c-9z-Xxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="88" y="1027"/>
+        </scene>
         <!--DetailController-->
         <scene sceneID="KGR-Pi-hrg">
             <objects>
@@ -21,9 +76,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Epm-I9-1RJ">
-                                            <rect key="frame" x="37" y="8" width="66" height="62"/>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWd-OD-zKq">
                                             <rect key="frame" x="149" y="49" width="207" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -48,12 +100,15 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT7-aE-24i">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT7-aE-24i">
                                             <rect key="frame" x="550" y="12" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.62279804755671897" green="0.62279804755671897" blue="0.62279804755671897" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Epm-I9-1RJ">
+                                            <rect key="frame" x="37" y="8" width="66" height="62"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -71,11 +126,11 @@
                             <outlet property="delegate" destination="SnV-30-DmA" id="j28-pi-tbN"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="giZ-xg-mEC"/>
+                    <tabBarItem key="tabBarItem" title="Edit" image="tooltabbar" id="giZ-xg-mEC"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQm-4c-xos" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="392" y="1007"/>
+            <point key="canvasLocation" x="746" y="1027"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Qvc-sT-Ehr">
@@ -88,7 +143,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="SnV-30-DmA" kind="relationship" relationship="viewControllers" id="Lmh-bs-YeB"/>
+                        <segue destination="dWA-3f-LLy" kind="relationship" relationship="viewControllers" id="Fp3-ge-nOu"/>
+                        <segue destination="SnV-30-DmA" kind="relationship" relationship="viewControllers" id="X0o-37-2fI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOq-PN-zrM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -112,4 +168,8 @@
             <point key="canvasLocation" x="-320" y="251"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="graphtabbar" width="25" height="22"/>
+        <image name="tooltabbar" width="25" height="24"/>
+    </resources>
 </document>

@@ -95,18 +95,14 @@ class DetailController: UITableViewController{
         
 
         
-        let shareAction2 = UITableViewRowAction(style: .Normal, title: "Share" , handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
-            
-            let firstActivityItem = self.values[indexPath.row]
-            
-            let activityViewController : UIActivityViewController = UIActivityViewController(activityItems: [firstActivityItem], applicationActivities: nil)
-            
-            self.presentViewController(activityViewController, animated: true, completion: nil)
-        })
+        let setlimit = UITableViewRowAction(style: .Normal, title: "Set Limit") { action, index in
+            print ("more button tapped")
         
-        shareAction2.backgroundColor = UIColor.blueColor()
+        }
+        setlimit.backgroundColor = UIColor.redColor()
+
         
-        return [shareAction2, editname]
+        return [setlimit, editname]
     }
 
     
