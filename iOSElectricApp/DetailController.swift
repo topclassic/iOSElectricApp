@@ -30,7 +30,7 @@ class DetailController: UITableViewController{
     
     
     func get(){
-        let url = NSURL(string: "http://topelectirc.azurewebsites.net/showsetname.php")
+        let url = NSURL(string: "http://topelectirc.azurewebsites.net/showsetlimit.php")
         let data = NSData(contentsOfURL: url!)
         values = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
         tableView.reloadData()
@@ -43,7 +43,11 @@ class DetailController: UITableViewController{
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = self.tableView.dequeueReusableCellWithIdentifier("DetailCell", forIndexPath: indexPath) as! DetailCell
         let maindata = values[indexPath.row]
+        if indexPath.row == 0{
+                cell.OutletID.text = ""
+        }else{
         cell.OutletID.text = "Outlet ID: "+(maindata["outlet_id"] as? String)!
+        }
         cell.OutletName.text = "Outlet Name: "+(maindata["outlet_name"] as? String)!
         cell.Power.text = "Unit: "+(maindata["elec_power"] as? String)!
         cell.Limit.text = "Limit: "+(maindata["elec_limit"] as? String)!
@@ -53,6 +57,13 @@ class DetailController: UITableViewController{
     }
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {
+        let setlimit = UITableViewRowAction(style: .Normal, title: "Set Limit") { action, index in
+            print ("more button tapped")
+            
+        }
+        setlimit.backgroundColor = UIColor.redColor()
+        
+        if indexPath.row != 0{
         let editname = UITableViewRowAction(style: .Normal, title: "Edit Outletname") { action, index in
             print ("more button tapped")
         let cell = tableView.cellForRowAtIndexPath(indexPath) as? DetailCell
@@ -91,18 +102,14 @@ class DetailController: UITableViewController{
         })
         self.presentViewController(selectAlert, animated: true, completion: nil)
         }
-        editname.backgroundColor = UIColor.lightGrayColor()
-        
-
-        
-        let setlimit = UITableViewRowAction(style: .Normal, title: "Set Limit") { action, index in
-            print ("more button tapped")
+            
+        editname.backgroundColor = UIColor.blackColor()
+        return [setlimit, editname]
         
         }
-        setlimit.backgroundColor = UIColor.redColor()
-
         
-        return [setlimit, editname]
+            
+        return [setlimit]
     }
 
     
