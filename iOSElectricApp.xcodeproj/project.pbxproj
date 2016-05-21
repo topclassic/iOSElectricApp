@@ -10,6 +10,7 @@
 		A02A2EC95AFE0CCCA0CB0800 /* Pods_iOSElectricApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A26D08EB2F987F8E7603C25 /* Pods_iOSElectricApp.framework */; };
 		EEB465DD1CF09E480055807D /* GraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB465DC1CF09E480055807D /* GraphCell.swift */; };
 		EEB465DF1CF09E680055807D /* GraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB465DE1CF09E680055807D /* GraphController.swift */; };
+		EEB465E41CF0AAA50055807D /* BarChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB465E31CF0AAA50055807D /* BarChartController.swift */; };
 		EEF0CE881CF0854A0091CD5D /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF0CE871CF0854A0091CD5D /* DetailCell.swift */; };
 		EEF0CE8A1CF0857D0091CD5D /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF0CE891CF0857D0091CD5D /* DetailController.swift */; };
 		EEF592881CF0849100C9C8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF592871CF0849100C9C8E7 /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 		824537F065938935CF3B7685 /* Pods-iOSElectricApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSElectricApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSElectricApp/Pods-iOSElectricApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EEB465DC1CF09E480055807D /* GraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphCell.swift; sourceTree = "<group>"; };
 		EEB465DE1CF09E680055807D /* GraphController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphController.swift; sourceTree = "<group>"; };
+		EEB465E31CF0AAA50055807D /* BarChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartController.swift; sourceTree = "<group>"; };
 		EEF0CE871CF0854A0091CD5D /* DetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		EEF0CE891CF0857D0091CD5D /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		EEF592841CF0849100C9C8E7 /* iOSElectricApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSElectricApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +97,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EEB465E01CF0AA5B0055807D /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				EEB465E31CF0AAA50055807D /* BarChartController.swift */,
+			);
+			name = Graph;
+			sourceTree = "<group>";
+		};
 		EEF0CE861CF085300091CD5D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +139,7 @@
 		EEF592861CF0849100C9C8E7 /* iOSElectricApp */ = {
 			isa = PBXGroup;
 			children = (
+				EEB465E01CF0AA5B0055807D /* Graph */,
 				EEF0CE861CF085300091CD5D /* Cell */,
 				EEF592871CF0849100C9C8E7 /* AppDelegate.swift */,
 				EEF592891CF0849100C9C8E7 /* ViewController.swift */,
@@ -357,6 +368,7 @@
 				EEB465DD1CF09E480055807D /* GraphCell.swift in Sources */,
 				EEF0CE8A1CF0857D0091CD5D /* DetailController.swift in Sources */,
 				EEF5928A1CF0849100C9C8E7 /* ViewController.swift in Sources */,
+				EEB465E41CF0AAA50055807D /* BarChartController.swift in Sources */,
 				EEF592881CF0849100C9C8E7 /* AppDelegate.swift in Sources */,
 				EEB465DF1CF09E680055807D /* GraphController.swift in Sources */,
 				EEF0CE881CF0854A0091CD5D /* DetailCell.swift in Sources */,

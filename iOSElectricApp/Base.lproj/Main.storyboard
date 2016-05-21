@@ -58,7 +58,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m1c-9z-Xxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="88" y="1027"/>
+            <point key="canvasLocation" x="96" y="1027"/>
         </scene>
         <!--DetailController-->
         <scene sceneID="KGR-Pi-hrg">
@@ -131,6 +131,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQm-4c-xos" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="746" y="1027"/>
+        </scene>
+        <!--Bar Chart Controller-->
+        <scene sceneID="SlR-Da-fNF">
+            <objects>
+                <viewController id="sHp-oX-XHc" customClass="BarChartController" customModule="iOSElectricApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Cb-hb-Tvd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fca-3y-bGw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FYq-SQ-JUW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UgX-bA-hH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96" y="1718"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Qvc-sT-Ehr">
