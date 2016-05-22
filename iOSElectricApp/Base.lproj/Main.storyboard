@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--GraphController-->
@@ -56,7 +57,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="View" image="graphtabbar" id="0T8-oA-ebk"/>
                     <connections>
-                        <segue destination="sHp-oX-XHc" kind="show" identifier="ShowDayGraph" id="dlg-2a-Bvr"/>
+                        <segue destination="YFL-wL-GCi" kind="show" identifier="ShowDayGraph" id="EAl-aO-xaC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m1c-9z-Xxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,33 +136,6 @@
             </objects>
             <point key="canvasLocation" x="746" y="1027"/>
         </scene>
-        <!--Bar Chart Controller-->
-        <scene sceneID="SlR-Da-fNF">
-            <objects>
-                <viewController id="sHp-oX-XHc" customClass="BarChartController" customModule="iOSElectricApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1Cb-hb-Tvd"/>
-                        <viewControllerLayoutGuide type="bottom" id="Fca-3y-bGw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FYq-SQ-JUW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YrD-aa-FAP" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="barChartView" destination="YrD-aa-FAP" id="HrC-Jb-uHV"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UgX-bA-hH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="106" y="1794"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Qvc-sT-Ehr">
             <objects>
@@ -196,6 +170,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5S-84-4oV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-320" y="251"/>
+        </scene>
+        <!--Line Chart Controller-->
+        <scene sceneID="ljB-3s-XgT">
+            <objects>
+                <viewController id="YFL-wL-GCi" customClass="LineChartController" customModule="iOSElectricApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="roV-mc-Muh"/>
+                        <viewControllerLayoutGuide type="bottom" id="4e4-AY-TqM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Twb-9d-8Ec">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jtN-n3-Grm" userLabel="Pie Chart View" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="268" width="600" height="268"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5g-Bv-I62" userLabel="Line Chart View" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="268"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jtN-n3-Grm" firstAttribute="leading" secondItem="Twb-9d-8Ec" secondAttribute="leading" id="Ec0-EG-ZRL"/>
+                            <constraint firstItem="M5g-Bv-I62" firstAttribute="height" secondItem="Twb-9d-8Ec" secondAttribute="height" multiplier="0.5" id="Zfn-oi-V6U"/>
+                            <constraint firstAttribute="trailing" secondItem="jtN-n3-Grm" secondAttribute="trailing" id="aBg-wI-PXq"/>
+                            <constraint firstAttribute="bottom" secondItem="jtN-n3-Grm" secondAttribute="bottom" id="dcI-b7-wmr"/>
+                            <constraint firstItem="M5g-Bv-I62" firstAttribute="leading" secondItem="Twb-9d-8Ec" secondAttribute="leading" id="gLi-jd-4kF"/>
+                            <constraint firstAttribute="trailing" secondItem="M5g-Bv-I62" secondAttribute="trailing" id="nd0-BQ-0BU"/>
+                            <constraint firstItem="M5g-Bv-I62" firstAttribute="top" secondItem="Twb-9d-8Ec" secondAttribute="top" id="tOt-Xo-oFs"/>
+                            <constraint firstItem="jtN-n3-Grm" firstAttribute="height" secondItem="Twb-9d-8Ec" secondAttribute="height" multiplier="0.5" id="wgN-n1-Fqh"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="bath" destination="jtN-n3-Grm" id="SsA-uZ-AAF"/>
+                        <outlet property="unit" destination="M5g-Bv-I62" id="Ud3-uv-rhx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Qu-YO-oZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="106" y="1758"/>
         </scene>
     </scenes>
     <resources>

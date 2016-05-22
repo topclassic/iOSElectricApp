@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A02A2EC95AFE0CCCA0CB0800 /* Pods_iOSElectricApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A26D08EB2F987F8E7603C25 /* Pods_iOSElectricApp.framework */; };
+		EE7F0B321CF1988D0018889D /* LineChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F0B311CF1988D0018889D /* LineChartController.swift */; };
 		EEB465DD1CF09E480055807D /* GraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB465DC1CF09E480055807D /* GraphCell.swift */; };
 		EEB465DF1CF09E680055807D /* GraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB465DE1CF09E680055807D /* GraphController.swift */; };
 		EEB465E41CF0AAA50055807D /* BarChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB465E31CF0AAA50055807D /* BarChartController.swift */; };
@@ -43,6 +44,7 @@
 		351CB5BC916FF66F72BF74EE /* Pods-iOSElectricApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSElectricApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSElectricApp/Pods-iOSElectricApp.release.xcconfig"; sourceTree = "<group>"; };
 		3A26D08EB2F987F8E7603C25 /* Pods_iOSElectricApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSElectricApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		824537F065938935CF3B7685 /* Pods-iOSElectricApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSElectricApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSElectricApp/Pods-iOSElectricApp.debug.xcconfig"; sourceTree = "<group>"; };
+		EE7F0B311CF1988D0018889D /* LineChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartController.swift; sourceTree = "<group>"; };
 		EEB465DC1CF09E480055807D /* GraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphCell.swift; sourceTree = "<group>"; };
 		EEB465DE1CF09E680055807D /* GraphController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphController.swift; sourceTree = "<group>"; };
 		EEB465E31CF0AAA50055807D /* BarChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				EEB465E31CF0AAA50055807D /* BarChartController.swift */,
+				EE7F0B311CF1988D0018889D /* LineChartController.swift */,
 			);
 			name = Graph;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			files = (
 				EEB465DD1CF09E480055807D /* GraphCell.swift in Sources */,
 				EEF0CE8A1CF0857D0091CD5D /* DetailController.swift in Sources */,
+				EE7F0B321CF1988D0018889D /* LineChartController.swift in Sources */,
 				EEF5928A1CF0849100C9C8E7 /* ViewController.swift in Sources */,
 				EEB465E41CF0AAA50055807D /* BarChartController.swift in Sources */,
 				EEF592881CF0849100C9C8E7 /* AppDelegate.swift in Sources */,
