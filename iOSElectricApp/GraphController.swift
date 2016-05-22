@@ -21,8 +21,13 @@ class GraphController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         get();
+        refreshControl?.addTarget(self, action: #selector(DetailController.refresh as (DetailController) -> () -> ()), forControlEvents: UIControlEvents.ValueChanged)
     }
-    
+    func refresh(){
+        tableView.reloadData()
+        get()
+        refreshControl?.endRefreshing()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
