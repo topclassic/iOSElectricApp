@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -77,7 +78,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IPe-1x-pzl" id="lTM-b6-hc7">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWd-OD-zKq">
@@ -104,19 +105,23 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT7-aE-24i">
-                                            <rect key="frame" x="550" y="12" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.62279804755671897" green="0.62279804755671897" blue="0.62279804755671897" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Epm-I9-1RJ">
                                             <rect key="frame" x="37" y="8" width="66" height="62"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTl-hc-L7K">
+                                            <rect key="frame" x="550" y="12" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.62279804760000002" green="0.62279804760000002" blue="0.62279804760000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jTl-hc-L7K" firstAttribute="top" secondItem="lTM-b6-hc7" secondAttribute="topMargin" constant="4" id="d3e-sk-tzB"/>
+                                        <constraint firstItem="jTl-hc-L7K" firstAttribute="trailing" secondItem="lTM-b6-hc7" secondAttribute="trailingMargin" id="kyT-gx-CvD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="Detail" destination="LT7-aE-24i" id="qBe-2I-p9V"/>
+                                    <outlet property="Detail" destination="jTl-hc-L7K" id="Dgp-26-6IX"/>
                                     <outlet property="ImageView" destination="Epm-I9-1RJ" id="Q8p-El-tEk"/>
                                     <outlet property="Limit" destination="LWd-OD-zKq" id="a79-mL-HKH"/>
                                     <outlet property="OutletID" destination="RIW-sn-DZ9" id="hhh-hT-j9h"/>

@@ -27,10 +27,13 @@ class GraphController: UITableViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
+        get()
+    }
     
     func get(){
-        let url = NSURL(string: "http://topelectirc.azurewebsites.net/showsetlimit.php")
+        let url = NSURL(string: "http://topelectirc.azurewebsites.net/showdetail.php")
         let data = NSData(contentsOfURL: url!)
         values = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
         tableView.reloadData()
@@ -49,8 +52,8 @@ class GraphController: UITableViewController{
         return cell;
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath){
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as? GraphCell
-        let maindata = values[indexPath.row]
+    //    let cell = tableView.cellForRowAtIndexPath(indexPath) as? GraphCell
+    //    let maindata = values[indexPath.row]
       
         self.performSegueWithIdentifier("ShowDayGraph", sender: self)
         

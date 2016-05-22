@@ -20,17 +20,20 @@ class DetailController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        get();
+        get()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
+        get()
+    }
     
     func get(){
-        let url = NSURL(string: "http://topelectirc.azurewebsites.net/showsetlimit.php")
+        let url = NSURL(string: "http://topelectirc.azurewebsites.net/showdetail.php")
         let data = NSData(contentsOfURL: url!)
         values = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
         tableView.reloadData()
@@ -61,17 +64,59 @@ class DetailController: UITableViewController{
             print ("more button tapped")
             
         }
-        setlimit.backgroundColor = UIColor.redColor()
+        setlimit.backgroundColor = UIColor.blackColor()
         
         if indexPath.row != 0{
-        let editname = UITableViewRowAction(style: .Normal, title: "Edit Outletname") { action, index in
-            print ("more button tapped")
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as? DetailCell
+            
+        let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
+            let maindata = self.values[indexPath.row]
+            let deleteAlert = UIAlertController(title:"Are you sure to delete",message: "Outlet ID: "+(maindata["outlet_id"] as? String)!+"\n"+"Outlet Name: "+(maindata["outlet_name"] as? String)!,preferredStyle: UIAlertControllerStyle.Alert)
+            let Ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+                let request = NSMutableURLRequest(URL: NSURL(string: "http://topelectirc.azurewebsites.net/deleteoutlet.php")!)
+                request.HTTPMethod = "POST"
+                let postString = "id=\((maindata["outlet_id"] as? String)!)"
+                request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+                
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                    data, response, error in
+                    
+                    if error != nil {
+                        print("error=\(error)")
+                        return
+                    }
+                    
+                    print("response = \(response)")
+                    
+                    let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("responseString = \(responseString)")
+                }
+                task.resume()
+                let seconds = 1.0
+                let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                
+                dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+
+                    tableView.reloadData()
+                    self.get()
+                })
+            })
+            let Cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil)
+            deleteAlert.addAction(Ok)
+            deleteAlert.addAction(Cancel)
+
+            self.presentViewController(deleteAlert, animated: true, completion: nil)
+                
+        }
+        delete.backgroundColor = UIColor.redColor()
+            
+        let editname = UITableViewRowAction(style: .Normal, title: "Edit \n"+" Outletname") { action, index in
+        //let cell = tableView.cellForRowAtIndexPath(indexPath) as? DetailCell
         let maindata = self.values[indexPath.row]
         let selectAlert = UIAlertController(title:"Outlet ID: "+(maindata["outlet_id"] as? String)!,message: "Outlet Name: "+(maindata["outlet_name"] as? String)!,preferredStyle: UIAlertControllerStyle.Alert)
         let Ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
             if let textField: UITextField = selectAlert.textFields?.first as UITextField!{
-                cell?.OutletName.text = "Outlet Name: "+textField.text!
+                //cell?.OutletName.text = "Outlet Name: "+textField.text!
                 let request = NSMutableURLRequest(URL: NSURL(string: "http://topelectirc.azurewebsites.net/updatename.php")!)
                 request.HTTPMethod = "POST"
                 let postString = "id=\((maindata["outlet_id"] as? String)!)&name=\(textField.text!)"
@@ -91,6 +136,14 @@ class DetailController: UITableViewController{
                     print("responseString = \(responseString)")
                 }
                 task.resume()
+                let seconds = 1.0
+                let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                
+                dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                    tableView.reloadData()
+                    self.get()
+                })
             }
         })
         let Cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil)
@@ -102,15 +155,12 @@ class DetailController: UITableViewController{
         })
         self.presentViewController(selectAlert, animated: true, completion: nil)
         }
-            
-        editname.backgroundColor = UIColor.blackColor()
-        return [setlimit, editname]
-        
+        editname.backgroundColor = UIColor.lightGrayColor()
+        return [delete, setlimit, editname]
         }
-        
-            
         return [setlimit]
     }
+
 
     
 }
