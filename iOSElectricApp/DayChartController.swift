@@ -9,19 +9,20 @@
 import UIKit
 import Charts
 
-class MonthChartController: UIViewController, ChartViewDelegate {
+class DayChartController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var unit: LineChartView!
     @IBOutlet weak var bath: LineChartView!
     var textName = String()
+    var textMonth = String()
     var calbath = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
-        let months = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]
+        let days = ["1", "2", "3", "4", "5", "6","7", "8", "9", "10", "11", "12","13", "14", "15", "16", "17", "18","19", "20", "21", "22", "23", "24","25", "26", "27", "28", "29", "30","31"]
         
-        let unitsSold = [0.0,20.0,40.0,60.0,80.0,90.0,100.0,120.0,140.0,160.0,180.0,0.0]
-
-        var bathSold = [0.0,20.0,40.0,60.0,80.0,90.0,150.0,120.0,140.0,160.0,180.0,0.0]
+        let unitsSold = [0.0,20.0,40.0,60.0,80.0,90.0,100.0,120.0,140.0,160.0,180.0,200.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0]
+        
+        var bathSold = [0.0,20.0,40.0,60.0,80.0,90.0,150.0,120.0,140.0,160.0,180.0,200.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,99.0,0.0,0.0]
         
         //caculate bath
         var bath = 0.0
@@ -52,8 +53,8 @@ class MonthChartController: UIViewController, ChartViewDelegate {
             }
             bathSold[count]=bath
         }//end caculate
-        setUnit(months, values: unitsSold)
-        setBath(months, values: bathSold)
+        setUnit(days, values: unitsSold)
+        setBath(days, values: bathSold)
     }
     
     func setUnit(dataPoints: [String], values: [Double]) {
@@ -64,7 +65,7 @@ class MonthChartController: UIViewController, ChartViewDelegate {
             let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
             dataEntries.append(dataEntry)
         }
-        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Unit from Outlet Name: "+textName)
+        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Unit from Month: "+textMonth+", Outlet Name: "+textName)
         let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
         unit.data = lineChartData
     }
@@ -76,7 +77,7 @@ class MonthChartController: UIViewController, ChartViewDelegate {
             let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
             dataEntries.append(dataEntry)
         }
-        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Bath from Outlet Name: "+textName)
+        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Bath from Month: "+textMonth+", Outlet Name: "+textName)
         let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
         lineChartDataSet.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)]
         lineChartDataSet.circleColors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)]

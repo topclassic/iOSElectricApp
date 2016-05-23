@@ -71,7 +71,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
-                        <segue destination="YFL-wL-GCi" kind="show" identifier="ShowDayGraph" id="EAl-aO-xaC"/>
+                        <segue destination="YFL-wL-GCi" kind="show" identifier="ShowMonthGraph" id="EAl-aO-xaC"/>
+                        <segue destination="feP-EZ-CI1" kind="show" identifier="ShowDayGraph" id="Y2K-Pz-2Hv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m1c-9z-Xxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -204,11 +205,11 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jtN-n3-Grm" userLabel="Pie Chart View" customClass="LineChartView" customModule="Charts">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jtN-n3-Grm" userLabel="Line Chart Bath" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="268" width="600" height="268"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5g-Bv-I62" userLabel="Line Chart View" customClass="LineChartView" customModule="Charts">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5g-Bv-I62" userLabel="Line Chart Unit" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="268"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -233,7 +234,50 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Qu-YO-oZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="106" y="1758"/>
+            <point key="canvasLocation" x="492" y="1790"/>
+        </scene>
+        <!--Day Chart Controller-->
+        <scene sceneID="ZYL-2c-odt">
+            <objects>
+                <viewController id="feP-EZ-CI1" customClass="DayChartController" customModule="iOSElectricApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c53-lb-irQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="njE-QS-Sha"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yP0-gq-fIv">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqU-nd-XEK" userLabel="Line Chart Bath" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="268" width="600" height="268"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Qd-cz-I9F" userLabel="Line Chart Unit" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="268"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Qd-cz-I9F" firstAttribute="top" secondItem="yP0-gq-fIv" secondAttribute="top" id="1FU-GY-eQF"/>
+                            <constraint firstItem="0Qd-cz-I9F" firstAttribute="height" secondItem="yP0-gq-fIv" secondAttribute="height" multiplier="0.5" id="2KY-84-136"/>
+                            <constraint firstItem="0Qd-cz-I9F" firstAttribute="leading" secondItem="yP0-gq-fIv" secondAttribute="leading" id="3KZ-gV-bQB"/>
+                            <constraint firstAttribute="trailing" secondItem="iqU-nd-XEK" secondAttribute="trailing" id="5a8-r7-nib"/>
+                            <constraint firstAttribute="bottom" secondItem="iqU-nd-XEK" secondAttribute="bottom" id="5od-oG-MRF"/>
+                            <constraint firstItem="iqU-nd-XEK" firstAttribute="height" secondItem="yP0-gq-fIv" secondAttribute="height" multiplier="0.5" id="Aaq-JE-8iq"/>
+                            <constraint firstAttribute="trailing" secondItem="0Qd-cz-I9F" secondAttribute="trailing" id="CEv-mv-iZq"/>
+                            <constraint firstItem="iqU-nd-XEK" firstAttribute="leading" secondItem="yP0-gq-fIv" secondAttribute="leading" id="qHw-9S-aWL"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="bath" destination="iqU-nd-XEK" id="oHH-oj-A6j"/>
+                        <outlet property="unit" destination="0Qd-cz-I9F" id="ZDG-Ex-BjE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aWi-En-J9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-246" y="1795"/>
         </scene>
     </scenes>
     <resources>

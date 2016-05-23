@@ -14,6 +14,7 @@
 		EEB465E41CF0AAA50055807D /* BarChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB465E31CF0AAA50055807D /* BarChartController.swift */; };
 		EEF0CE881CF0854A0091CD5D /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF0CE871CF0854A0091CD5D /* DetailCell.swift */; };
 		EEF0CE8A1CF0857D0091CD5D /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF0CE891CF0857D0091CD5D /* DetailController.swift */; };
+		EEF474F51CF3946F002CE551 /* DayChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF474F41CF3946F002CE551 /* DayChartController.swift */; };
 		EEF592881CF0849100C9C8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF592871CF0849100C9C8E7 /* AppDelegate.swift */; };
 		EEF5928A1CF0849100C9C8E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF592891CF0849100C9C8E7 /* ViewController.swift */; };
 		EEF5928D1CF0849100C9C8E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEF5928B1CF0849100C9C8E7 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		EEB465E31CF0AAA50055807D /* BarChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartController.swift; sourceTree = "<group>"; };
 		EEF0CE871CF0854A0091CD5D /* DetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		EEF0CE891CF0857D0091CD5D /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		EEF474F41CF3946F002CE551 /* DayChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayChartController.swift; sourceTree = "<group>"; };
 		EEF592841CF0849100C9C8E7 /* iOSElectricApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSElectricApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF592871CF0849100C9C8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEF592891CF0849100C9C8E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				EEB465E31CF0AAA50055807D /* BarChartController.swift */,
 				EE7F0B311CF1988D0018889D /* MonthChartController.swift */,
+				EEF474F41CF3946F002CE551 /* DayChartController.swift */,
 			);
 			name = Graph;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				EEF592881CF0849100C9C8E7 /* AppDelegate.swift in Sources */,
 				EEB465DF1CF09E680055807D /* GraphController.swift in Sources */,
 				EEF0CE881CF0854A0091CD5D /* DetailCell.swift in Sources */,
+				EEF474F51CF3946F002CE551 /* DayChartController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

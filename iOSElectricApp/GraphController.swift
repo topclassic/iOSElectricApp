@@ -15,7 +15,7 @@ class GraphController: UITableViewController{
     var sendName: String = ""
     var sendMonth: String = ""
     var values:NSArray = []
-    
+    var checklink = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         get();
@@ -59,36 +59,72 @@ class GraphController: UITableViewController{
         
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let DestViewController: MonthChartController = segue.destinationViewController as! MonthChartController
-        DestViewController.textName = sendName
-        DestViewController.textMonth = sendMonth
+        if checklink == 0{
+            let DestMonthController = segue.destinationViewController as! MonthChartController
+            DestMonthController.textName = sendName
+        }else{
+            let DestDayController = segue.destinationViewController as! DayChartController
+            DestDayController.textName = sendName
+            DestDayController.textMonth = sendMonth
+        }
     }
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {
         let maindata = values[indexPath.row]
         self.sendName = (maindata["outlet_name"] as? String)!
-        let selectweek = UITableViewRowAction(style: .Normal, title: "Week") { action, index in
-            
-        }
-        selectweek.backgroundColor = UIColor.blueColor()
-        let selectmonth = UITableViewRowAction(style: .Normal, title: "Month") { action, index in
-            let selectAlert = UIAlertController(title:"View Graph", message: "Outlet Name: "+(maindata["outlet_name"] as? String)!,preferredStyle: UIAlertControllerStyle.Alert)
+        let selectday = UITableViewRowAction(style: .Normal, title: "Day Graph") { action, index in
+            self.checklink = 1
+            let selectAlert = UIAlertController(title:"Select the month for day", message: "Outlet Name: "+(maindata["outlet_name"] as? String)!,preferredStyle: UIAlertControllerStyle.Alert)
             let jan = UIAlertAction(title: "January", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
                 self.sendMonth = "January"
                 self.performSegueWithIdentifier("ShowDayGraph", sender: self)
             })
-            let feb = UIAlertAction(title: "February", style: UIAlertActionStyle.Default, handler: nil)
-            let mar = UIAlertAction(title: "March", style: UIAlertActionStyle.Default, handler: nil)
-            let apr = UIAlertAction(title: "April", style: UIAlertActionStyle.Default, handler: nil)
-            let may = UIAlertAction(title: "May", style: UIAlertActionStyle.Default, handler: nil)
-            let jun = UIAlertAction(title: "June", style: UIAlertActionStyle.Default, handler: nil)
-            let jul = UIAlertAction(title: "July", style: UIAlertActionStyle.Default, handler: nil)
-            let aug = UIAlertAction(title: "August", style: UIAlertActionStyle.Default, handler: nil)
-            let sep = UIAlertAction(title: "September", style: UIAlertActionStyle.Default, handler: nil)
-            let oct = UIAlertAction(title: "October", style: UIAlertActionStyle.Default, handler: nil)
-            let nov = UIAlertAction(title: "November", style: UIAlertActionStyle.Default, handler: nil)
-            let dec = UIAlertAction(title: "December", style: UIAlertActionStyle.Default, handler: nil)
+            let feb = UIAlertAction(title: "February", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+                self.sendMonth = "February"
+                self.performSegueWithIdentifier("ShowDayGraph", sender: self)
+            })
+            let mar = UIAlertAction(title: "March", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+                self.sendMonth = "March"
+                self.performSegueWithIdentifier("ShowDayGraph", sender: self)
+            })
+            let apr = UIAlertAction(title: "April", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+                self.sendMonth = "April"
+                self.performSegueWithIdentifier("ShowDayGraph", sender: self)
+            })
+            let may = UIAlertAction(title: "May", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+                self.sendMonth = "May"
+                self.performSegueWithIdentifier("ShowDayGraph", sender: self)
+            })
+            let jun = UIAlertAction(title: "June", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+                self.sendMonth = "June"
+                self.performSegueWithIdentifier("ShowDayGraph", sender: self)
+            })
+            let jul = UIAlertAction(title: "July", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+                self.sendMonth = "July"
+                self.performSegueWithIdentifier("ShowDayGraph", sender: self)
+            })
+            let aug = UIAlertAction(title: "August", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+                self.sendMonth = "August"
+                self.performSegueWithIdentifier("ShowDayGraph", sender: self)
+            })
+            let sep = UIAlertAction(title: "September", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+                self.sendMonth = "September"
+                self.performSegueWithIdentifier("ShowDayGraph", sender: self)
+            })
+            let oct = UIAlertAction(title: "October", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+                self.sendMonth = "October"
+                self.performSegueWithIdentifier("ShowDayGraph", sender: self)
+            })
+            let nov = UIAlertAction(title: "November", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+                self.sendMonth = "November"
+                self.performSegueWithIdentifier("ShowDayGraph", sender: self)
+            })
+            let dec = UIAlertAction(title: "December", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+                self.sendMonth = "December"
+                self.performSegueWithIdentifier("ShowDayGraph", sender: self)
+            })
             let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil)
+            
             selectAlert.addAction(jan)
             selectAlert.addAction(feb)
             selectAlert.addAction(mar)
@@ -103,9 +139,18 @@ class GraphController: UITableViewController{
             selectAlert.addAction(dec)
             selectAlert.addAction(cancel)
             self.presentViewController(selectAlert, animated: true, completion: nil)
+            
+        }
+        selectday.backgroundColor = UIColor.blueColor()
+
+        let selectmonth = UITableViewRowAction(style: .Normal, title: "Month Graph") { action, index in
+            self.checklink = 0
+            self.performSegueWithIdentifier("ShowMonthGraph", sender: self)
+            
         }
         selectmonth.backgroundColor = UIColor.orangeColor()
-        return [selectmonth, selectweek]
+
+        return [selectmonth, selectday]
         
        
         
