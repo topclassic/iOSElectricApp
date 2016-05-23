@@ -66,7 +66,47 @@ class DetailController: UITableViewController{
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {
         let setlimit = UITableViewRowAction(style: .Normal, title: "Set Limit") { action, index in
-            print ("more button tapped")
+            let maindata = self.values[indexPath.row]
+            let selectAlert = UIAlertController(title:"Outlet Name: "+(maindata["outlet_name"] as? String)!,message: "Unit: "+(maindata["elec_power"] as? String)!+"\n"+"Limit: "+(maindata["elec_limit"] as? String)!,preferredStyle: UIAlertControllerStyle.Alert)
+            let Ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+                if let textField: UITextField = selectAlert.textFields?.first as UITextField!{
+                    let request = NSMutableURLRequest(URL: NSURL(string: "http://topelectirc.azurewebsites.net/updatelimit.php")!)
+                    request.HTTPMethod = "POST"
+                    let postString = "id=\((maindata["outlet_id"] as? String)!)&limit=\(textField.text!)"
+                    request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+                    
+                    let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                        data, response, error in
+                        
+                        if error != nil {
+                            print("error=\(error)")
+                            return
+                        }
+                        
+                        print("response = \(response)")
+                        
+                        let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                        print("responseString = \(responseString)")
+                    }
+                task.resume()
+                let seconds = 1.0
+                let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                
+                dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                    tableView.reloadData()
+                    self.get()
+                })
+            }
+        })
+        let Cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil)
+        selectAlert.addAction(Ok)
+        selectAlert.addAction(Cancel)
+        
+        selectAlert.addTextFieldWithConfigurationHandler({(textField)->Void in
+            textField.placeholder = "Change your power limit"
+        })
+        self.presentViewController(selectAlert, animated: true, completion: nil)
             
         }
         setlimit.backgroundColor = UIColor.blackColor()
@@ -76,7 +116,7 @@ class DetailController: UITableViewController{
         let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
             let maindata = self.values[indexPath.row]
             let deleteAlert = UIAlertController(title:"Are you sure to delete",message: "Outlet ID: "+(maindata["outlet_id"] as? String)!+"\n"+"Outlet Name: "+(maindata["outlet_name"] as? String)!,preferredStyle: UIAlertControllerStyle.Alert)
-            let Ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
+            let Ok = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default, handler: {(action) -> Void in
                 let request = NSMutableURLRequest(URL: NSURL(string: "http://topelectirc.azurewebsites.net/deleteoutlet.php")!)
                 request.HTTPMethod = "POST"
                 let postString = "id=\((maindata["outlet_id"] as? String)!)"
