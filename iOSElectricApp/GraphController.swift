@@ -53,15 +53,35 @@ class GraphController: UITableViewController{
         let maindata = values[indexPath.row]
         cell.OutletName.text = "Outlet Name: "+(maindata["outlet_name"] as? String)!
         cell.Power.text = "Unit: "+(maindata["elec_power"] as? String)!
+        cell.View.text = "Select Graph >"
         cell.ImageView.image = imageImages
         return cell;
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath){
-    //    let cell = tableView.cellForRowAtIndexPath(indexPath) as? GraphCell
-    //    let maindata = values[indexPath.row]
-      
-        self.performSegueWithIdentifier("ShowDayGraph", sender: self)
+     
+    }
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
+    {
+        let maindata = values[indexPath.row]
+        let selectweek = UITableViewRowAction(style: .Normal, title: "Week") { action, index in
+            
+        }
+        selectweek.backgroundColor = UIColor.blueColor()
+        let selectmonth = UITableViewRowAction(style: .Normal, title: "Month") { action, index in
+            
+        }
+        selectmonth.backgroundColor = UIColor.orangeColor()
+        return [selectmonth, selectweek]
         
+        let selectAlert = UIAlertController(title:"Outlet ID: "+(maindata["outlet_id"] as? String)!,message: "Outlet Name: "+(maindata["outlet_name"] as? String)!,preferredStyle: UIAlertControllerStyle.Alert)
+        let week = UIAlertAction(title: "Week", style: UIAlertActionStyle.Default, handler: nil)
+        let month = UIAlertAction(title: "Month", style: UIAlertActionStyle.Default, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil)
+        selectAlert.addAction(week)
+        selectAlert.addAction(month)
+        selectAlert.addAction(cancel)
+        self.presentViewController(selectAlert, animated: true, completion: nil)
+        self.performSegueWithIdentifier("ShowDayGraph", sender: self)
     }
     
 }

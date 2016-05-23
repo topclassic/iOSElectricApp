@@ -13,6 +13,7 @@ class GraphCell: UITableViewCell {
     @IBOutlet var ImageView: UIImageView!
     @IBOutlet var OutletName: UILabel!
     @IBOutlet var Power: UILabel!
+    @IBOutlet var View: UILabel!
     @IBOutlet var Switch: UISwitch!
 
     
