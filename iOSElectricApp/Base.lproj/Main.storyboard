@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m7Q-Wu-UVK" id="Tn9-Q8-qgP">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="84"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hRW-5b-Gkv">
@@ -192,10 +192,10 @@
             </objects>
             <point key="canvasLocation" x="-320" y="251"/>
         </scene>
-        <!--Line Chart Controller-->
+        <!--Month Chart Controller-->
         <scene sceneID="ljB-3s-XgT">
             <objects>
-                <viewController id="YFL-wL-GCi" customClass="LineChartController" customModule="iOSElectricApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YFL-wL-GCi" customClass="MonthChartController" customModule="iOSElectricApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="roV-mc-Muh"/>
                         <viewControllerLayoutGuide type="bottom" id="4e4-AY-TqM"/>
