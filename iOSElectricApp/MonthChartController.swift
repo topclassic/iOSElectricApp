@@ -19,9 +19,9 @@ class MonthChartController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
         let months = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]
         
-        let unitsSold = [0.0,20.0,40.0,60.0,80.0,90.0,100.0,120.0,140.0,160.0,180.0,0.0]
+        let unitsSold = [0.0,0.0,0.0,400.0,350.7,0.0,0,0,0,0,0,0.0]
 
-        var bathSold = [0.0,20.0,40.0,60.0,80.0,90.0,150.0,120.0,140.0,160.0,180.0,0.0]
+        var bathSold = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
         
         //caculate bath
         var bath = 0.0
