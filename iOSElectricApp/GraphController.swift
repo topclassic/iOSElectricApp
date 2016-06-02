@@ -49,9 +49,9 @@ class GraphController: UITableViewController{
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = self.tableView.dequeueReusableCellWithIdentifier("GraphCell", forIndexPath: indexPath) as! GraphCell
         let maindata = values[indexPath.row]
-        cell.OutletName.text = "Outlet Name: "+(maindata["outlet_name"] as? String)!
+        cell.OutletName.text = "Name: "+(maindata["outlet_name"] as? String)!
         cell.Power.text = "Unit: "+(maindata["elec_power"] as? String)!
-        cell.View.text = "Select Graph >"
+        cell.View.text = "Graph >"
         cell.ImageView.image = imageImages
         return cell;
     }

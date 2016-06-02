@@ -78,6 +78,7 @@ class MonthChartController: UIViewController, ChartViewDelegate {
         }
         let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Bath from Outlet Name: "+textName)
         let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+        
         lineChartDataSet.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)]
         lineChartDataSet.circleColors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)]
         bath.data = lineChartData

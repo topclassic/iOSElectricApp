@@ -56,7 +56,7 @@ class DetailController: UITableViewController{
         }else{
         cell.OutletID.text = "Outlet ID: "+(maindata["outlet_id"] as? String)!
         }
-        cell.OutletName.text = "Outlet Name: "+(maindata["outlet_name"] as? String)!
+        cell.OutletName.text = "Name: "+(maindata["outlet_name"] as? String)!
         cell.Power.text = "Unit: "+(maindata["elec_power"] as? String)!
         cell.Limit.text = "Limit: "+(maindata["elec_limit"] as? String)!
         cell.Detail.text = "Edit >"
